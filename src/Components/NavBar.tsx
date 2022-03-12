@@ -1,14 +1,18 @@
-import { BaseSyntheticEvent } from 'react'
+import { BaseSyntheticEvent, Dispatch, SetStateAction } from 'react'
 import { Grid, Button } from '@mui/material'
-import { useState } from 'react'
 
-const NavBar = () => {
-  const [city, setCity] = useState('Ottawa')
+interface IComponentProps {
+  selectedCity: string
+  setSelectedCity: Dispatch<SetStateAction<string>>
+}
+
+const NavBar = (props: IComponentProps) => {
+  const { selectedCity, setSelectedCity } = props
 
   const navBarLabels = ['Ottawa', 'Moscow', 'Tokyo']
 
   const handleClick = (event: BaseSyntheticEvent) => {
-    setCity(event.currentTarget.value)
+    setSelectedCity(event.currentTarget.value)
   }
 
   return (
@@ -28,8 +32,8 @@ const NavBar = () => {
               value={label}
               sx={{
                 fontSize: '2rem',
-                fontWeight: label === city ? 'bold' : 'normal',
-                color: label === city ? '#60B0E8' : '#333339',
+                fontWeight: label === selectedCity ? 'bold' : 'normal',
+                color: label === selectedCity ? '#60B0E8' : '#333339',
               }}
             >
               {label}

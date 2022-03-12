@@ -1,7 +1,14 @@
 import { Grid, Paper, Typography } from '@mui/material'
 import { BsClouds } from 'react-icons/bs'
+import { IDigestedWeatherDay } from '../types'
 
-const Dashboard = () => {
+interface IComponentProps {
+  forecast: Array<IDigestedWeatherDay>
+}
+
+const Dashboard = (props: IComponentProps) => {
+  const { forecast } = props
+  console.log(forecast)
   return (
     <Grid container item justifyContent="center" sx={{ marginTop: '1em' }}>
       <Paper
@@ -51,12 +58,12 @@ const Dashboard = () => {
                         fontFamily: 'Coda',
                       }}
                     >
-                      19°
+                      {forecast[0].temp}°
                     </Typography>
                   </Grid>
                   <Grid item>
                     <Typography sx={{ fontSize: '2rem', fontWeight: 'light' }}>
-                      Clouds
+                      {forecast[0].weather}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -78,7 +85,7 @@ const Dashboard = () => {
               <Grid container item direction="column" alignItems="center">
                 <Grid item>
                   <Typography sx={{ fontSize: '1.5em', fontWeight: 'light' }}>
-                    Wed
+                    {forecast[1].day}
                   </Typography>
                 </Grid>
                 <Grid item>
@@ -92,7 +99,7 @@ const Dashboard = () => {
                       fontFamily: 'Coda',
                     }}
                   >
-                    19°
+                    {forecast[1].temp}°
                   </Typography>
                 </Grid>
               </Grid>
@@ -110,7 +117,7 @@ const Dashboard = () => {
               <Grid container item direction="column" alignItems="center">
                 <Grid item>
                   <Typography sx={{ fontSize: '1.5em', fontWeight: 'light' }}>
-                    Thu
+                    {forecast[2].day}
                   </Typography>
                 </Grid>
                 <Grid item>
@@ -124,7 +131,7 @@ const Dashboard = () => {
                       fontFamily: 'Coda',
                     }}
                   >
-                    19°
+                    {forecast[2].temp}°
                   </Typography>
                 </Grid>
               </Grid>
@@ -142,7 +149,7 @@ const Dashboard = () => {
               <Grid container item direction="column" alignItems="center">
                 <Grid item>
                   <Typography sx={{ fontSize: '1.5em', fontWeight: 'light' }}>
-                    Fri
+                    {forecast[3].day}
                   </Typography>
                 </Grid>
                 <Grid item>
@@ -156,7 +163,7 @@ const Dashboard = () => {
                       fontFamily: 'Coda',
                     }}
                   >
-                    19°
+                    {forecast[3].temp}°
                   </Typography>
                 </Grid>
               </Grid>
@@ -175,7 +182,7 @@ const Dashboard = () => {
               <Grid container item direction="column" alignItems="center">
                 <Grid item>
                   <Typography sx={{ fontSize: '1.5em', fontWeight: 'light' }}>
-                    Sat
+                    {forecast[4].day}
                   </Typography>
                 </Grid>
                 <Grid item>
@@ -189,7 +196,7 @@ const Dashboard = () => {
                       fontFamily: 'Coda',
                     }}
                   >
-                    19°
+                    {forecast[4].temp}°
                   </Typography>
                 </Grid>
               </Grid>
