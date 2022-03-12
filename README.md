@@ -30,7 +30,7 @@ Then `cd` into the root folder and open it in your code editor. For Visual Studi
 `cd weather-dash`
 `code .`
 
-In the root folder of your app, create a new file called `.env` and save your OpenWeatherMap API key in it with a key of REACT_APP_WEATHER_API_KEY. The file should now look something like this:
+In the root folder of your app, create a new file called `.env` and save your OpenWeatherMap API key in it with a key of `REACT_APP_WEATHER_API_KEY`. The file should now look something like this:
 
 `REACT_APP_WEATHER_API_KEY = 72s1f71bc28cv71ayce63749f6g96b78`
 
