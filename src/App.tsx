@@ -12,14 +12,17 @@ const App = () => {
   const [forecast, setForecast] = useState<IDigestedWeatherDay[]>([])
 
   useEffect(() => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${cities[selectedCity].lat}&lon=${cities[selectedCity].lon}&exclude=minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
-    )
-      .then((response) => response.json())
-      .then((data) => setForecast(digestWeatherData(data.daily.slice(0, 5))))
-      .catch((err) => {
-        console.error(err)
-      })
+    setForecast([])
+    setTimeout(() => {
+      fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${cities[selectedCity].lat}&lon=${cities[selectedCity].lon}&exclude=minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
+      )
+        .then((response) => response.json())
+        .then((data) => setForecast(digestWeatherData(data.daily.slice(0, 5))))
+        .catch((err) => {
+          console.error(err)
+        })
+    }, 500)
   }, [selectedCity])
 
   return (
