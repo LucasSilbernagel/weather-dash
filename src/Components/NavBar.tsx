@@ -15,15 +15,14 @@ const NavBar = () => {
     <Grid
       container
       item
-      lg={5}
       sx={{
         background: '#eef6fb',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
       }}
     >
       {navBarLabels.map((label, index) => {
         return (
-          <Grid item key={index}>
+          <Grid container item key={index} justifyContent="center" lg={2}>
             <Button
               onClick={handleClick}
               value={label}
