@@ -6,6 +6,7 @@ import Dashboard from './Components/Dashboard'
 import { digestWeatherData } from './LogicHelpers'
 import { IDigestedWeatherDay } from './types'
 import { cities } from './constants'
+import Footer from './Components/Footer'
 
 const App = () => {
   /** Selected city to display weather forecast */
@@ -41,6 +42,7 @@ const App = () => {
       >
         <NavBar selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
         <Dashboard forecast={forecast} />
+        <Footer />
       </Grid>
     </>
   )
