@@ -11,6 +11,7 @@ const NavBar = (props: IComponentProps) => {
 
   const navBarLabels = ['Ottawa', 'Moscow', 'Tokyo']
 
+  /** Update the selected city when a new option is selected in the nav bar */
   const handleClick = (event: BaseSyntheticEvent) => {
     setSelectedCity(event.currentTarget.value)
   }
@@ -32,7 +33,7 @@ const NavBar = (props: IComponentProps) => {
               value={label}
               sx={{
                 fontSize: '2rem',
-                fontWeight: label === selectedCity ? 'bold' : 'normal',
+                fontWeight: label === selectedCity ? 'bold' : 'light',
                 color: label === selectedCity ? '#60B0E8' : '#333339',
               }}
             >

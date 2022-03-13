@@ -8,9 +8,12 @@ import { IDigestedWeatherDay } from './types'
 import { cities } from './constants'
 
 const App = () => {
+  /** Selected city to display weather forecast */
   const [selectedCity, setSelectedCity] = useState('Ottawa')
+  /** Array containing a five-day weather forecast for the selected city */
   const [forecast, setForecast] = useState<IDigestedWeatherDay[]>([])
 
+  /** Fetch weather forecast data from the weather API when a city is selected */
   useEffect(() => {
     setForecast([])
     setTimeout(() => {

@@ -13,6 +13,8 @@ interface IComponentProps {
   size: string
 }
 
+/** Returns a weather icon according to the weather ID returned from the OpenWeatherMap API */
+/** https://openweathermap.org/weather-conditions */
 const WeatherIcon = (props: IComponentProps) => {
   const { weatherId, size } = props
 

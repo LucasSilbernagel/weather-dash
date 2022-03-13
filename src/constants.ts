@@ -1,5 +1,6 @@
 import { ICities } from './types'
 
+/** City options for the weather app */
 export const cities: ICities = {
   Ottawa: {
     lon: -75.695,

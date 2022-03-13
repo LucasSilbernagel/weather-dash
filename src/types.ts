@@ -1,3 +1,4 @@
+/** "Feels like" object from the weather API */
 interface IFeelsLike {
   day: number
   eve: number
@@ -5,6 +6,7 @@ interface IFeelsLike {
   night: number
 }
 
+/** Temperature object from the weather API */
 interface ITemp {
   day: number
   eve: number
@@ -14,6 +16,7 @@ interface ITemp {
   night: number
 }
 
+/** Weather object from the weather API */
 interface IWeatherObject {
   description: string
   icon: string
@@ -21,6 +24,7 @@ interface IWeatherObject {
   main: string
 }
 
+/** One day of forecast data from the weather API */
 export interface IWeatherDay {
   clouds: number
   dew_point: number
@@ -43,6 +47,7 @@ export interface IWeatherDay {
   wind_speed: number
 }
 
+/** One day of forecast data from the weather API, digested and reduced to the essentials */
 export interface IDigestedWeatherDay {
   day: string
   temp: number
@@ -50,11 +55,13 @@ export interface IDigestedWeatherDay {
   weatherId: number
 }
 
+/** City location coordinates, latitude and longitude */
 interface ICoordinates {
   lon: number
   lat: number
 }
 
+/** City options for the weather app */
 export interface ICities {
   [key: string]: ICoordinates
 }
