@@ -36,7 +36,7 @@ const TodayForecast = (props: IComponentProps) => {
             {forecast.length ? (
               <WeatherIcon weatherId={forecast[0].weatherId} size={'10rem'} />
             ) : (
-              <Skeleton variant="rectangular" width={140} height={150} />
+              <Skeleton variant="rectangular" width={140} height={164} />
             )}
           </Grid>
           <Grid item container direction="column" lg={2} alignItems="center">
