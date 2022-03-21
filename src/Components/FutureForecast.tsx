@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Grid, Typography, Skeleton } from '@mui/material'
+import { Grid, Typography, Skeleton, Tooltip } from '@mui/material'
 import { IDigestedWeatherDay } from '../types'
 import WeatherIcon from './WeatherIcon'
 
@@ -56,10 +56,18 @@ const FutureForecast = (props: IComponentProps) => {
                 </Grid>
                 <Grid item>
                   {forecast.length ? (
-                    <WeatherIcon
-                      weatherId={futureDay.weatherId}
-                      size={'4rem'}
-                    />
+                    <Tooltip
+                      title={
+                        <span style={{ textTransform: 'capitalize' }}>
+                          {futureDay.weather}
+                        </span>
+                      }
+                      placement="top"
+                    >
+                      <span>
+                        <WeatherIcon day={futureDay} size={'4rem'} />
+                      </span>
+                    </Tooltip>
                   ) : (
                     <Skeleton variant="rectangular" width={70} height={70} />
                   )}
@@ -73,7 +81,22 @@ const FutureForecast = (props: IComponentProps) => {
                         fontFamily: 'Coda',
                       }}
                     >
-                      {futureDay.temp}°
+                      {futureDay.maxTemp}°
+                    </Typography>
+                  ) : (
+                    <Skeleton variant="text" width={70} height={45} />
+                  )}
+                </Grid>
+                <Grid item>
+                  {forecast.length ? (
+                    <Typography
+                      sx={{
+                        fontWeight: 'bold',
+                        fontSize: '1.2rem',
+                        fontFamily: 'Coda',
+                      }}
+                    >
+                      {futureDay.minTemp}°
                     </Typography>
                   ) : (
                     <Skeleton variant="text" width={70} height={45} />

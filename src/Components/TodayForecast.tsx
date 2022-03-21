@@ -14,7 +14,7 @@ const TodayForecast = (props: IComponentProps) => {
       lg={12}
       sx={{
         background: '#EEF6FB',
-        padding: '3em 0 3em 0',
+        padding: '2em 0 2em 0',
         borderRadius: '15px 15px 0 0',
         border: '0.25em #FFFFFF solid',
       }}
@@ -34,7 +34,7 @@ const TodayForecast = (props: IComponentProps) => {
         <Grid item container justifyContent="center">
           <Grid item container lg={3} justifyContent="center">
             {forecast.length ? (
-              <WeatherIcon weatherId={forecast[0].weatherId} size={'10rem'} />
+              <WeatherIcon day={forecast[0]} size={'10rem'} />
             ) : (
               <Skeleton variant="rectangular" width={140} height={164} />
             )}
@@ -49,7 +49,7 @@ const TodayForecast = (props: IComponentProps) => {
                     fontFamily: 'Coda',
                   }}
                 >
-                  {forecast[0].temp}°
+                  {forecast[0].maxTemp}°
                 </Typography>
               ) : (
                 <Skeleton variant="text" width={80} height={95} />
@@ -57,14 +57,35 @@ const TodayForecast = (props: IComponentProps) => {
             </Grid>
             <Grid item>
               {forecast.length ? (
-                <Typography sx={{ fontSize: '2rem', fontWeight: 'light' }}>
-                  {forecast[0].weather}
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    fontSize: '2rem',
+                    fontFamily: 'Coda',
+                  }}
+                >
+                  {forecast[0].minTemp}°
                 </Typography>
               ) : (
-                <Skeleton variant="text" width={80} height={50} />
+                <Skeleton variant="text" width={80} height={95} />
               )}
             </Grid>
           </Grid>
+        </Grid>
+        <Grid container item justifyContent="center" sx={{ marginTop: '1em' }}>
+          {forecast.length ? (
+            <Typography
+              sx={{
+                fontSize: '1.7rem',
+                fontWeight: 'light',
+                textTransform: 'capitalize',
+              }}
+            >
+              {forecast[0].weather}
+            </Typography>
+          ) : (
+            <Skeleton variant="text" width={80} height={50} />
+          )}
         </Grid>
       </Grid>
     </Grid>

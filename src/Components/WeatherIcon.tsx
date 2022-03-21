@@ -7,63 +7,64 @@ import {
   BsFillCloudHazeFill,
   BsFillSunFill,
 } from 'react-icons/bs'
+import { IDigestedWeatherDay } from '../types'
 
 interface IComponentProps {
-  weatherId: number
+  day: IDigestedWeatherDay
   size: string
 }
 
 /** Returns a weather icon according to the weather ID returned from the OpenWeatherMap API */
 /** https://openweathermap.org/weather-conditions */
 const WeatherIcon = (props: IComponentProps) => {
-  const { weatherId, size } = props
+  const { day, size } = props
 
-  if (weatherId >= 200 && weatherId <= 232) {
+  if (day.weatherId >= 200 && day.weatherId <= 232) {
     return (
       <BsCloudLightningRainFill
-        aria-label="thunder storm"
+        aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
     )
-  } else if (weatherId >= 300 && weatherId <= 321) {
+  } else if (day.weatherId >= 300 && day.weatherId <= 321) {
     return (
       <BsFillCloudDrizzleFill
-        aria-label="drizzle"
+        aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
     )
-  } else if (weatherId >= 500 && weatherId <= 531) {
+  } else if (day.weatherId >= 500 && day.weatherId <= 531) {
     return (
       <BsFillCloudRainHeavyFill
-        aria-label="Rain"
+        aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
     )
-  } else if (weatherId >= 600 && weatherId <= 622) {
+  } else if (day.weatherId >= 600 && day.weatherId <= 622) {
     return (
       <BsCloudSnowFill
-        aria-label="snow"
+        aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
     )
-  } else if (weatherId >= 701 && weatherId <= 781) {
+  } else if (day.weatherId >= 701 && day.weatherId <= 781) {
     return (
       <BsFillCloudHazeFill
-        aria-label="mist, smoke, haze, fog, or dust"
+        aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
     )
-  } else if (weatherId === 800) {
+  } else if (day.weatherId === 800) {
     return (
       <BsFillSunFill
-        aria-label="clear skies"
+        aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
     )
-  } else if (weatherId >= 801 && weatherId <= 804) {
+  } else if (day.weatherId >= 801 && day.weatherId <= 804) {
     return (
       <BsClouds
-        aria-label="Cloudy"
+        aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
     )

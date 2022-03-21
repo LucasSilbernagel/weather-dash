@@ -50,7 +50,8 @@ export interface IWeatherDay {
 /** One day of forecast data from the weather API, digested and reduced to the essentials */
 export interface IDigestedWeatherDay {
   day: string
-  temp: number
+  minTemp: number
+  maxTemp: number
   weather: string
   weatherId: number
   dayId: number

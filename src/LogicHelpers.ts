@@ -10,8 +10,9 @@ export const digestWeatherData = (weatherArray: Array<IWeatherDay>) => {
   return weatherArray.map((day, index) => {
     return {
       day: weekDays[new Date(day.dt * 1000).getDay()], // returns the day of the week, abbreviated.
-      temp: Math.round(day.temp.day), // average daily temperature, rounded to the nearest integer.
-      weather: day.weather[0].main, // overall weather forecast for the day.
+      minTemp: Math.round(day.temp.min), // minimum daily temperature, rounded to the nearest integer.
+      maxTemp: Math.round(day.temp.max), // maximum daily temperature, rounded to the nearest integer.
+      weather: day.weather[0].description, // overall weather forecast for the day.
       weatherId: day.weather[0].id, // ID of the weather forecast, used to display the appropriate weather icon.
       dayId: index,
     }
