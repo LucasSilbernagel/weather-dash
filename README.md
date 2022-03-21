@@ -8,7 +8,7 @@ A simple weather dashboard.
 
 ### API
 
-- [OpenWeatherMap](https://openweathermap.org/api/one-call-api)
+- [OpenWeatherMap](https://openweathermap.org/api/)
 
 ### Front End
 

@@ -33,7 +33,7 @@ const FutureForecast = (props: IComponentProps) => {
         {futureDays.map((futureDay) => {
           return (
             <Grid
-              key={futureDay.day}
+              key={futureDay.dayId}
               container
               item
               lg={3}

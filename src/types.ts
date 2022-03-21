@@ -53,15 +53,40 @@ export interface IDigestedWeatherDay {
   temp: number
   weather: string
   weatherId: number
+  dayId: number
 }
 
-/** City location coordinates, latitude and longitude */
-interface ICoordinates {
-  lon: number
+/** Option for the city select */
+export interface IGeocodingOption {
+  country: string
   lat: number
+  local_names?: Object
+  lon: number
+  name: string
+  state?: string
 }
 
-/** City options for the weather app */
-export interface ICities {
-  [key: string]: ICoordinates
+/** Translations of country names from ISO country codes */
+export interface IisoCountries {
+  [key: string]: string
+}
+
+/** Formatted option for the city select */
+export interface IDigestedGeocodingOption {
+  cityName: string
+  state: string
+  country: string
+  longitude: number
+  latitude: number
+  id: number
+}
+
+/** Default selected city to display in the city select */
+export enum EDefaultSelectedCity {
+  cityName = 'Toronto',
+  country = 'Canada',
+  id = 0,
+  latitude = 43.6534817,
+  longitude = -79.3839347,
+  state = 'Ontario',
 }
