@@ -38,14 +38,8 @@ const CitySelect = (props: IComponentProps) => {
   }
 
   return (
-    <Grid
-      container
-      item
-      sx={{
-        justifyContent: 'center',
-      }}
-    >
-      <Grid container item justifyContent="center" lg={3} md={4} sm={6} xs={10}>
+    <Grid container item>
+      <Grid item xs={12}>
         <Autocomplete
           id="citySelect"
           value={selectedCity}

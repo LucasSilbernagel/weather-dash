@@ -15,7 +15,6 @@ const Dashboard = (props: IComponentProps) => {
         sx={{
           padding: '0.25em',
           width: '100%',
-          maxWidth: '800px',
           borderRadius: '15px',
         }}
         elevation={3}
