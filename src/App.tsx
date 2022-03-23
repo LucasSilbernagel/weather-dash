@@ -30,6 +30,13 @@ const App = () => {
   const theme = useTheme()
   const largeScreen = useMediaQuery(theme.breakpoints.up('lg'))
 
+  /** If the user previously used the app to search for a city, display the forecast for that city when they return to the app */
+  useEffect(() => {
+    if (window.localStorage.savedCity) {
+      setSelectedCity(JSON.parse(window.localStorage.savedCity))
+    }
+  }, [])
+
   /** Fetch options for the city select when the user searches for a city */
   useEffect(() => {
     if (searchedCity.length > 3) {

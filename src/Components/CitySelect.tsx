@@ -32,6 +32,7 @@ const CitySelect = (props: IComponentProps) => {
   ) => {
     if (value) {
       setSelectedCity(value)
+      window.localStorage.setItem('savedCity', JSON.stringify(value))
     } else {
       setSelectedCity(EDefaultSelectedCity)
     }
