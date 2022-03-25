@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react'
 import { IDigestedWeatherDay } from '../../types'
 import FutureForecast from './FutureForecast'
-
-interface IComponentProps {
-  forecast: Array<IDigestedWeatherDay>
-}
+import { atomForecast } from '../../atoms'
+import { useRecoilValue } from 'recoil'
 
 /** Returns weather forecast for the next four days */
-const FutureForecastContainer = (props: IComponentProps) => {
-  const { forecast } = props
+const FutureForecastContainer = () => {
+  /** Array containing a five-day weather forecast for the selected city */
+  const forecast = useRecoilValue(atomForecast)
 
   /** The next four days of the weather forecast */
   const [futureDays, setFutureDays] = useState<IDigestedWeatherDay[]>([])
@@ -25,13 +24,7 @@ const FutureForecastContainer = (props: IComponentProps) => {
     }
   }, [forecast])
 
-  return (
-    <FutureForecast
-      forecast={forecast}
-      futureDays={futureDays}
-      blankDays={blankDays}
-    />
-  )
+  return <FutureForecast futureDays={futureDays} blankDays={blankDays} />
 }
 
 export default FutureForecastContainer

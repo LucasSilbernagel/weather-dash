@@ -1,13 +1,12 @@
 import { Grid, Typography, Skeleton } from '@mui/material'
-import { IDigestedWeatherDay } from '../types'
 import WeatherIcon from './WeatherIcon'
+import { atomForecast } from '../atoms'
+import { useRecoilValue } from 'recoil'
 
-interface IComponentProps {
-  forecast: Array<IDigestedWeatherDay>
-}
+const TodayForecast = () => {
+  /** Array containing a five-day weather forecast for the selected city */
+  const forecast = useRecoilValue(atomForecast)
 
-const TodayForecast = (props: IComponentProps) => {
-  const { forecast } = props
   return (
     <Grid
       item

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 import { Grid, CssBaseline, useMediaQuery, useTheme } from '@mui/material'
 import Dashboard from '../Components/Dashboard'
-import { IDigestedWeatherDay, IDigestedGeocodingOption } from '../types'
+import { IDigestedGeocodingOption } from '../types'
 import Footer from '../Components/Footer'
 import CitySelectContainer from '../Components/CitySelect/CitySelectContainer'
 import UnitToggleContainer from '../Components/UnitToggle/UnitToggleContainer'
@@ -15,7 +15,6 @@ interface IComponentProps {
   selectedCity: IDigestedGeocodingOption
   setUnits: Dispatch<SetStateAction<string>>
   units: string
-  forecast: Array<IDigestedWeatherDay>
 }
 
 const App = (props: IComponentProps) => {
@@ -27,7 +26,6 @@ const App = (props: IComponentProps) => {
     selectedCity,
     units,
     setUnits,
-    forecast,
   } = props
 
   const theme = useTheme()
@@ -67,7 +65,7 @@ const App = (props: IComponentProps) => {
                 <UnitToggleContainer units={units} setUnits={setUnits} />
               </Grid>
             </Grid>
-            <Dashboard forecast={forecast} />
+            <Dashboard />
             <Footer />
           </Grid>
         </Grid>

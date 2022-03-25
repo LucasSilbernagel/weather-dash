@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react'
 import { digestWeatherData, digestGeocodingData } from '../LogicHelpers'
-import {
-  IDigestedWeatherDay,
-  IDigestedGeocodingOption,
-  EDefaultSelectedCity,
-} from '../types'
+import { IDigestedGeocodingOption, EDefaultSelectedCity } from '../types'
 import '../style.css'
 import App from './App'
+import { useSetRecoilState } from 'recoil'
+import { atomForecast } from '../atoms'
 
 const AppContainer = () => {
-  /** Array containing a five-day weather forecast for the selected city */
-  const [forecast, setForecast] = useState<IDigestedWeatherDay[]>([])
+  /** State setter to update the five-day weather forecast array */
+  const setForecast = useSetRecoilState(atomForecast)
   /** City name that the user has typed in the city select */
   const [searchedCity, setSearchedCity] = useState('')
   /** Array of options for the city select, based on the user's search */
@@ -64,7 +62,7 @@ const AppContainer = () => {
           console.error(err)
         })
     }, 500)
-  }, [selectedCity, units])
+  }, [selectedCity, units, setForecast])
 
   return (
     <App
@@ -75,7 +73,6 @@ const AppContainer = () => {
       selectedCity={selectedCity}
       units={units}
       setUnits={setUnits}
-      forecast={forecast}
     />
   )
 }

@@ -1,16 +1,20 @@
 import { Grid, Typography, Skeleton, Tooltip } from '@mui/material'
 import { IDigestedWeatherDay } from '../../types'
 import WeatherIcon from '../WeatherIcon'
+import { atomForecast } from '../../atoms'
+import { useRecoilValue } from 'recoil'
 
 interface IComponentProps {
-  forecast: Array<IDigestedWeatherDay>
   futureDays: Array<IDigestedWeatherDay>
   blankDays: string[]
 }
 
 /** Returns weather forecast for the next four days */
 const FutureForecast = (props: IComponentProps) => {
-  const { forecast, futureDays, blankDays } = props
+  const { futureDays, blankDays } = props
+
+  /** Array containing a five-day weather forecast for the selected city */
+  const forecast = useRecoilValue(atomForecast)
 
   /** Display forecast data when it has loaded */
   if (futureDays.length) {
