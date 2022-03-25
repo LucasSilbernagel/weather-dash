@@ -17,6 +17,10 @@ A simple weather dashboard.
 - [MUI](https://mui.com/)
 - [react-icons](https://www.npmjs.com/package/react-icons)
 
+### State Management
+
+- [Recoil](https://recoiljs.org/)
+
 ## Run Locally
 
 In order to run this application locally, you must have node installed on your computer. To check if you already have it installed, enter `node -v` in your terminal. If you do not have node, you can install it here: [https://nodejs.org/en/](https://nodejs.org/en/)
