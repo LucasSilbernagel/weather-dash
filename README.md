@@ -43,3 +43,11 @@ There should be no quotation marks or brackets in this file.
 Next, install all of the required dependencies by running `npm install`.
 
 To start up the app, make sure you are in the root folder and then run `npm start` in your terminal. This should launch the app in a new browser tab via [http://localhost:3000/](http://localhost:3000/). You are now running the app locally!
+
+## Testing
+
+### Unit Tests
+
+Unit tests are written with [Jest](https://jestjs.io/) and [react-testing-library](https://testing-library.com/).
+
+Use `npm test` to run all unit tests, or `npm test -- SomeFileToRun` to run a specific test file.
