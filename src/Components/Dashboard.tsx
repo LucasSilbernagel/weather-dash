@@ -1,7 +1,7 @@
 import { Grid, Paper } from '@mui/material'
 import { IDigestedWeatherDay } from '../types'
 import TodayForecast from './TodayForecast'
-import FutureForecast from './FutureForecast'
+import FutureForecastContainer from './FutureForecast/FutureForecastContainer'
 
 interface IComponentProps {
   forecast: Array<IDigestedWeatherDay>
@@ -21,7 +21,7 @@ const Dashboard = (props: IComponentProps) => {
       >
         <Grid container item direction="column">
           <TodayForecast forecast={forecast} />
-          <FutureForecast forecast={forecast} />
+          <FutureForecastContainer forecast={forecast} />
         </Grid>
       </Paper>
     </Grid>

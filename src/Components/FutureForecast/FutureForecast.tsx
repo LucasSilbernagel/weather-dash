@@ -1,30 +1,16 @@
-import { useState, useEffect } from 'react'
 import { Grid, Typography, Skeleton, Tooltip } from '@mui/material'
-import { IDigestedWeatherDay } from '../types'
-import WeatherIcon from './WeatherIcon'
+import { IDigestedWeatherDay } from '../../types'
+import WeatherIcon from '../WeatherIcon'
 
 interface IComponentProps {
   forecast: Array<IDigestedWeatherDay>
+  futureDays: Array<IDigestedWeatherDay>
+  blankDays: string[]
 }
 
 /** Returns weather forecast for the next four days */
 const FutureForecast = (props: IComponentProps) => {
-  const { forecast } = props
-
-  /** The next four days of the weather forecast */
-  const [futureDays, setFutureDays] = useState<IDigestedWeatherDay[]>([])
-
-  /** Array to map over in order to display Skeleton when forecast data has not yet loaded */
-  const blankDays = ['day1', 'day2', 'day3', 'day4']
-
-  /** Forecast of the next four days is the original forecast array with "today" removed. */
-  useEffect(() => {
-    if (forecast.length > 0) {
-      const forecastCopy = [...forecast]
-      const nextDays = forecastCopy.splice(1)
-      setFutureDays(nextDays)
-    }
-  }, [forecast])
+  const { forecast, futureDays, blankDays } = props
 
   /** Display forecast data when it has loaded */
   if (futureDays.length) {

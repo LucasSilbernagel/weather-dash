@@ -1,42 +1,29 @@
-import { Dispatch, SetStateAction, SyntheticEvent } from 'react'
+import { SyntheticEvent } from 'react'
 import { Grid, TextField, Autocomplete } from '@mui/material'
-import { EDefaultSelectedCity, IDigestedGeocodingOption } from '../types'
+import { IDigestedGeocodingOption } from '../../types'
 
 interface IComponentProps {
-  setSearchedCity: Dispatch<SetStateAction<string>>
   cityOptions: Array<IDigestedGeocodingOption>
   loadingCityOptions: boolean
-  setSelectedCity: Dispatch<SetStateAction<IDigestedGeocodingOption>>
   selectedCity: IDigestedGeocodingOption
+  handleDropdownChange: (
+    event: SyntheticEvent<Element, Event>,
+    value: IDigestedGeocodingOption | null
+  ) => void
+  handleInputChange: (
+    event: SyntheticEvent<Element, Event>,
+    value: string
+  ) => void
 }
 
 const CitySelect = (props: IComponentProps) => {
   const {
-    setSearchedCity,
     cityOptions,
     loadingCityOptions,
-    setSelectedCity,
     selectedCity,
+    handleDropdownChange,
+    handleInputChange,
   } = props
-
-  const handleInputChange = (
-    event: SyntheticEvent<Element, Event>,
-    value: string
-  ) => {
-    setSearchedCity(value)
-  }
-
-  const handleDropdownChange = (
-    event: SyntheticEvent<Element, Event>,
-    value: IDigestedGeocodingOption | null
-  ) => {
-    if (value) {
-      setSelectedCity(value)
-      window.localStorage.setItem('savedCity', JSON.stringify(value))
-    } else {
-      setSelectedCity(EDefaultSelectedCity)
-    }
-  }
 
   return (
     <Grid container item>

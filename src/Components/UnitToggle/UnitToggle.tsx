@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react'
+import { MouseEvent } from 'react'
 import {
   Grid,
   ToggleButton,
@@ -8,22 +8,15 @@ import {
 } from '@mui/material'
 
 interface IComponentProps {
-  setUnits: Dispatch<SetStateAction<string>>
   units: string
+  handleChange: (event: MouseEvent<HTMLElement>, value: string) => void
 }
 
 const UnitToggle = (props: IComponentProps) => {
-  const { setUnits, units } = props
+  const { units, handleChange } = props
 
   const theme = useTheme()
   const largeScreen = useMediaQuery(theme.breakpoints.up('lg'))
-
-  const handleChange = (
-    event: React.MouseEvent<HTMLElement>,
-    value: string
-  ) => {
-    setUnits(value)
-  }
 
   return (
     <Grid container item justifyContent={largeScreen ? 'flex-end' : 'center'}>

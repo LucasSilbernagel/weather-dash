@@ -1,18 +1,14 @@
 import { useEffect, useState } from 'react'
-import { Grid, CssBaseline, useMediaQuery, useTheme } from '@mui/material'
-import Dashboard from './Components/Dashboard'
-import { digestWeatherData, digestGeocodingData } from './LogicHelpers'
+import { digestWeatherData, digestGeocodingData } from '../LogicHelpers'
 import {
   IDigestedWeatherDay,
   IDigestedGeocodingOption,
   EDefaultSelectedCity,
-} from './types'
-import Footer from './Components/Footer'
-import CitySelect from './Components/CitySelect'
-import UnitToggle from './Components/UnitToggle'
-import './style.css'
+} from '../types'
+import '../style.css'
+import App from './App'
 
-const App = () => {
+const AppContainer = () => {
   /** Array containing a five-day weather forecast for the selected city */
   const [forecast, setForecast] = useState<IDigestedWeatherDay[]>([])
   /** City name that the user has typed in the city select */
@@ -26,9 +22,6 @@ const App = () => {
     useState<IDigestedGeocodingOption>(EDefaultSelectedCity)
   /** Whether temperatures are displayed in metric or imperial units */
   const [units, setUnits] = useState('metric')
-
-  const theme = useTheme()
-  const largeScreen = useMediaQuery(theme.breakpoints.up('lg'))
 
   /** If the user previously used the app to search for a city, display the forecast for that city when they return to the app */
   useEffect(() => {
@@ -74,46 +67,17 @@ const App = () => {
   }, [selectedCity, units])
 
   return (
-    <>
-      <CssBaseline />
-      <Grid
-        container
-        direction="column"
-        sx={{
-          background: '#eef6fb',
-          paddingTop: '2em',
-        }}
-      >
-        <Grid container item justifyContent="center">
-          <Grid container item xl={6} lg={7} md={6} sm={7} xs={11}>
-            <Grid
-              item
-              container
-              justifyContent="space-between"
-              direction={largeScreen ? 'row' : 'column'}
-              alignItems="center"
-              spacing={largeScreen ? undefined : 2}
-            >
-              <Grid item container lg={5} md={4} sm={6}>
-                <CitySelect
-                  setSearchedCity={setSearchedCity}
-                  cityOptions={cityOptions}
-                  loadingCityOptions={loadingCityOptions}
-                  setSelectedCity={setSelectedCity}
-                  selectedCity={selectedCity}
-                />
-              </Grid>
-              <Grid item container lg={2}>
-                <UnitToggle units={units} setUnits={setUnits} />
-              </Grid>
-            </Grid>
-            <Dashboard forecast={forecast} />
-            <Footer />
-          </Grid>
-        </Grid>
-      </Grid>
-    </>
+    <App
+      setSearchedCity={setSearchedCity}
+      cityOptions={cityOptions}
+      loadingCityOptions={loadingCityOptions}
+      setSelectedCity={setSelectedCity}
+      selectedCity={selectedCity}
+      units={units}
+      setUnits={setUnits}
+      forecast={forecast}
+    />
   )
 }
 
-export default App
+export default AppContainer
