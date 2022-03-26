@@ -5,6 +5,7 @@ import '../style.css'
 import App from './App'
 import { useSetRecoilState } from 'recoil'
 import { atomForecast } from '../atoms'
+import { getWeatherData, getGeocodingData } from '../Data/DataHelpers'
 
 const AppContainer = () => {
   /** State setter to update the five-day weather forecast array */
@@ -34,9 +35,7 @@ const AppContainer = () => {
       setCityOptions([])
       setLoadingCityOptions(true)
       setTimeout(() => {
-        fetch(
-          `https://api.openweathermap.org/geo/1.0/direct?appid=${process.env.REACT_APP_WEATHER_API_KEY}&q=${searchedCity}&limit=3`
-        )
+        getGeocodingData(searchedCity)
           .then((response) => response.json())
           .then((data) => {
             setCityOptions(digestGeocodingData(data))
@@ -53,9 +52,7 @@ const AppContainer = () => {
   useEffect(() => {
     setForecast([])
     setTimeout(() => {
-      fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?appid=${process.env.REACT_APP_WEATHER_API_KEY}&lat=${selectedCity.latitude}&lon=${selectedCity.longitude}&exclude=minutely,hourly,alerts&units=${units}`
-      )
+      getWeatherData(selectedCity, units)
         .then((response) => response.json())
         .then((data) => setForecast(digestWeatherData(data.daily.slice(0, 5))))
         .catch((err) => {
