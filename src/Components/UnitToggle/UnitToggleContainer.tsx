@@ -1,9 +1,10 @@
 import { Dispatch, SetStateAction } from 'react'
 import UnitToggle from './UnitToggle'
+import { TUnits } from '../../types'
 
 interface IComponentProps {
-  setUnits: Dispatch<SetStateAction<string>>
-  units: string
+  setUnits: Dispatch<SetStateAction<TUnits>>
+  units: TUnits
 }
 
 const UnitToggleContainer = (props: IComponentProps) => {
@@ -12,7 +13,7 @@ const UnitToggleContainer = (props: IComponentProps) => {
   /** Handle switching between Celsius and Fahrenheit */
   const handleChange = (
     event: React.MouseEvent<HTMLElement>,
-    value: string
+    value: TUnits
   ) => {
     setUnits(value)
   }

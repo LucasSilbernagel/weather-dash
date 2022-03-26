@@ -6,10 +6,11 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material'
+import { TUnits } from '../../types'
 
 interface IComponentProps {
-  units: string
-  handleChange: (event: MouseEvent<HTMLElement>, value: string) => void
+  units: TUnits
+  handleChange: (event: MouseEvent<HTMLElement>, value: TUnits) => void
 }
 
 const UnitToggle = (props: IComponentProps) => {

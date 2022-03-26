@@ -1,4 +1,4 @@
-import { IDigestedGeocodingOption } from '../types'
+import { IDigestedGeocodingOption, TUnits } from '../types'
 
 /** Gets weather forecast data from the OpenWeatherMap API
  * @param {IDigestedGeocodingOption} selectedCity The city for which to display a weather forecast
@@ -7,7 +7,7 @@ import { IDigestedGeocodingOption } from '../types'
  */
 export const getWeatherData = (
   selectedCity: IDigestedGeocodingOption,
-  units: string
+  units: TUnits
 ) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/onecall?appid=${process.env.REACT_APP_WEATHER_API_KEY}&lat=${selectedCity.latitude}&lon=${selectedCity.longitude}&exclude=minutely,hourly,alerts&units=${units}`

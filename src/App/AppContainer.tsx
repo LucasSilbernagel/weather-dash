@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react'
 import { digestWeatherData, digestGeocodingData } from '../Logic/LogicHelpers'
-import { IDigestedGeocodingOption, EDefaultSelectedCity } from '../types'
+import {
+  IDigestedGeocodingOption,
+  EDefaultSelectedCity,
+  TUnits,
+} from '../types'
 import '../style.css'
 import App from './App'
 import { useSetRecoilState } from 'recoil'
@@ -20,7 +24,7 @@ const AppContainer = () => {
   const [selectedCity, setSelectedCity] =
     useState<IDigestedGeocodingOption>(EDefaultSelectedCity)
   /** Whether temperatures are displayed in metric or imperial units */
-  const [units, setUnits] = useState('metric')
+  const [units, setUnits] = useState<TUnits>('metric')
 
   /** If the user previously used the app to search for a city, display the forecast for that city when they return to the app */
   useEffect(() => {

@@ -92,3 +92,5 @@ export enum EDefaultSelectedCity {
   longitude = -79.3839347,
   state = 'Ontario',
 }
+
+export type TUnits = 'metric' | 'imperial'

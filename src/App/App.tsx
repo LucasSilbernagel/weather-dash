@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 import { Grid, CssBaseline, useMediaQuery, useTheme } from '@mui/material'
 import Dashboard from '../Components/Dashboard'
-import { IDigestedGeocodingOption } from '../types'
+import { IDigestedGeocodingOption, TUnits } from '../types'
 import Footer from '../Components/Footer'
 import CitySelectContainer from '../Components/CitySelect/CitySelectContainer'
 import UnitToggleContainer from '../Components/UnitToggle/UnitToggleContainer'
@@ -13,8 +13,8 @@ interface IComponentProps {
   loadingCityOptions: boolean
   setSelectedCity: Dispatch<SetStateAction<IDigestedGeocodingOption>>
   selectedCity: IDigestedGeocodingOption
-  setUnits: Dispatch<SetStateAction<string>>
-  units: string
+  setUnits: Dispatch<SetStateAction<TUnits>>
+  units: TUnits
 }
 
 const App = (props: IComponentProps) => {
