@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { digestWeatherData, digestGeocodingData } from '../LogicHelpers'
+import { digestWeatherData, digestGeocodingData } from '../Logic/LogicHelpers'
 import { IDigestedGeocodingOption, EDefaultSelectedCity } from '../types'
 import '../style.css'
 import App from './App'

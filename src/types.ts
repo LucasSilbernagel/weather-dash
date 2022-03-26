@@ -36,7 +36,8 @@ export interface IWeatherDay {
   moonset: number
   pop: number
   pressure: number
-  snow: number
+  snow?: number
+  rain?: number
   sunrise: number
   sunset: number
   temp: ITemp

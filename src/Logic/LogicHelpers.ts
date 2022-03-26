@@ -1,5 +1,5 @@
-import { IWeatherDay, IGeocodingOption } from './types'
-import { isoCountries } from './constants'
+import { IWeatherDay, IGeocodingOption } from '../types'
+import { isoCountries } from '../constants'
 
 /** Digests the array of forecast data from the weather API, reducing it down to the essentials.
  * @param {Array} weatherArray - Array of forecast data from the weather API
