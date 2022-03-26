@@ -39,7 +39,11 @@ const AppContainer = () => {
       setCityOptions([])
       setLoadingCityOptions(true)
       setTimeout(() => {
-        getGeocodingData(searchedCity)
+        getGeocodingData({
+          appid: process.env.REACT_APP_WEATHER_API_KEY,
+          q: searchedCity,
+          limit: 3,
+        })
           .then((response) => response.json())
           .then((data) => {
             setCityOptions(digestGeocodingData(data))
@@ -56,7 +60,13 @@ const AppContainer = () => {
   useEffect(() => {
     setForecast([])
     setTimeout(() => {
-      getWeatherData(selectedCity, units)
+      getWeatherData({
+        appid: process.env.REACT_APP_WEATHER_API_KEY,
+        lat: selectedCity.latitude,
+        lon: selectedCity.longitude,
+        exclude: 'minutely,hourly,alerts',
+        units: units,
+      })
         .then((response) => response.json())
         .then((data) => setForecast(digestWeatherData(data.daily.slice(0, 5))))
         .catch((err) => {

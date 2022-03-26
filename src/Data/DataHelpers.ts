@@ -1,25 +1,29 @@
-import { IDigestedGeocodingOption, TUnits } from '../types'
+const baseURL = 'https://api.openweathermap.org'
+
+/** A helper method to build a URL with query parameters
+ * @param {String} endpoint The endpoint you're trying to reach
+ * @param {Object} params the search parameters
+ * @returns {String} URL
+ */
+const buildURLWithQueryParams = (endpoint: string, params = {}) => {
+  const url = new URL([baseURL, endpoint].join(''))
+  const urlSearchParams = new URLSearchParams(params)
+  url.search = String(urlSearchParams)
+  return url.href
+}
 
 /** Gets weather forecast data from the OpenWeatherMap API
- * @param {IDigestedGeocodingOption} selectedCity The city for which to display a weather forecast
- * @param {String} units Metric or imperial units for temperatures
+ * @param {Object} params the search parameters
  * @returns {Promise<Response>}
  */
-export const getWeatherData = (
-  selectedCity: IDigestedGeocodingOption,
-  units: TUnits
-) => {
-  return fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?appid=${process.env.REACT_APP_WEATHER_API_KEY}&lat=${selectedCity.latitude}&lon=${selectedCity.longitude}&exclude=minutely,hourly,alerts&units=${units}`
-  )
+export const getWeatherData = (params = {}) => {
+  return fetch(buildURLWithQueryParams(`/data/2.5/onecall`, params))
 }
 
 /** Gets geocoding (city) data from the OpenWeatherMap API
- * @param {String} searchedCity The city name that the user has typed into the city search autocomplete
+ * @param {Object} params the search parameters
  * @returns {Promise<Response>}
  */
-export const getGeocodingData = (searchedCity: string) => {
-  return fetch(
-    `https://api.openweathermap.org/geo/1.0/direct?appid=${process.env.REACT_APP_WEATHER_API_KEY}&q=${searchedCity}&limit=3`
-  )
+export const getGeocodingData = (params = {}) => {
+  return fetch(buildURLWithQueryParams(`/geo/1.0/direct`, params))
 }
