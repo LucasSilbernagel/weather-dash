@@ -40,7 +40,6 @@ const AppContainer = () => {
       setLoadingCityOptions(true)
       setTimeout(() => {
         getGeocodingData({
-          appid: process.env.REACT_APP_WEATHER_API_KEY,
           q: searchedCity,
           limit: 3,
         })
@@ -61,7 +60,6 @@ const AppContainer = () => {
     setForecast([])
     setTimeout(() => {
       getWeatherData({
-        appid: process.env.REACT_APP_WEATHER_API_KEY,
         lat: selectedCity.latitude,
         lon: selectedCity.longitude,
         exclude: 'minutely,hourly,alerts',
