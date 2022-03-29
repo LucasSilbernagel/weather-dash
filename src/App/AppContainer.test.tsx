@@ -10,5 +10,11 @@ describe('AppContainer', () => {
       </RecoilRoot>
     )
     expect(screen.getByLabelText(/City/)).toBeInTheDocument()
+    expect(screen.getByText('Celsius'))
+    expect(screen.getByText('Fahrenheit'))
+    expect(screen.getByText('Built by'))
+    expect(screen.getByText('Lucas Silbernagel'))
+    expect(screen.getByText('API:'))
+    expect(screen.getByText('OpenWeatherMap'))
   })
 })
