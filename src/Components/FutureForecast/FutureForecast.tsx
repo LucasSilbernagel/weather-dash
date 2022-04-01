@@ -1,6 +1,6 @@
 import { Grid, Typography, Skeleton, Tooltip } from '@mui/material'
 import { IDigestedWeatherDay } from '../../types'
-import WeatherIcon from '../WeatherIcon'
+import WeatherIcon from '../WeatherIcon/WeatherIcon'
 import { atomForecast } from '../../atoms'
 import { useRecoilValue } from 'recoil'
 
@@ -102,7 +102,7 @@ const FutureForecast = (props: IComponentProps) => {
   } else {
     return (
       <Grid container item>
-        {blankDays.map((day) => {
+        {blankDays.map((day, index) => {
           return (
             <Grid
               key={day}
@@ -118,7 +118,12 @@ const FutureForecast = (props: IComponentProps) => {
             >
               <Grid container item direction="column" alignItems="center">
                 <Grid item>
-                  <Skeleton variant="text" width={70} height={35} />
+                  <Skeleton
+                    data-testid={index.toString().concat('-skeleton')}
+                    variant="text"
+                    width={70}
+                    height={35}
+                  />
                 </Grid>
                 <Grid item>
                   <Skeleton variant="rectangular" width={70} height={70} />

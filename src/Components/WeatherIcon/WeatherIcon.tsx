@@ -7,7 +7,7 @@ import {
   BsFillCloudHazeFill,
   BsFillSunFill,
 } from 'react-icons/bs'
-import { IDigestedWeatherDay } from '../types'
+import { IDigestedWeatherDay } from '../../types'
 
 interface IComponentProps {
   day: IDigestedWeatherDay
@@ -22,6 +22,7 @@ const WeatherIcon = (props: IComponentProps) => {
   if (day.weatherId >= 200 && day.weatherId <= 232) {
     return (
       <BsCloudLightningRainFill
+        role="img"
         aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
@@ -29,6 +30,7 @@ const WeatherIcon = (props: IComponentProps) => {
   } else if (day.weatherId >= 300 && day.weatherId <= 321) {
     return (
       <BsFillCloudDrizzleFill
+        role="img"
         aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
@@ -36,6 +38,7 @@ const WeatherIcon = (props: IComponentProps) => {
   } else if (day.weatherId >= 500 && day.weatherId <= 531) {
     return (
       <BsFillCloudRainHeavyFill
+        role="img"
         aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
@@ -43,6 +46,7 @@ const WeatherIcon = (props: IComponentProps) => {
   } else if (day.weatherId >= 600 && day.weatherId <= 622) {
     return (
       <BsCloudSnowFill
+        role="img"
         aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
@@ -50,6 +54,7 @@ const WeatherIcon = (props: IComponentProps) => {
   } else if (day.weatherId >= 701 && day.weatherId <= 781) {
     return (
       <BsFillCloudHazeFill
+        role="img"
         aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
@@ -57,6 +62,7 @@ const WeatherIcon = (props: IComponentProps) => {
   } else if (day.weatherId === 800) {
     return (
       <BsFillSunFill
+        role="img"
         aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />
@@ -64,6 +70,7 @@ const WeatherIcon = (props: IComponentProps) => {
   } else if (day.weatherId >= 801 && day.weatherId <= 804) {
     return (
       <BsClouds
+        role="img"
         aria-label={day.weather}
         style={{ color: '#30456A', fontSize: size }}
       />

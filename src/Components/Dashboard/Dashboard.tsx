@@ -1,6 +1,6 @@
 import { Grid, Paper } from '@mui/material'
-import TodayForecast from './TodayForecast'
-import FutureForecastContainer from './FutureForecast/FutureForecastContainer'
+import TodayForecast from '../TodayForecast/TodayForecast'
+import FutureForecastContainer from '../FutureForecast/FutureForecastContainer'
 
 const Dashboard = () => {
   return (

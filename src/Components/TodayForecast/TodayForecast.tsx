@@ -1,6 +1,6 @@
 import { Grid, Typography, Skeleton } from '@mui/material'
-import WeatherIcon from './WeatherIcon'
-import { atomForecast } from '../atoms'
+import WeatherIcon from '../WeatherIcon/WeatherIcon'
+import { atomForecast } from '../../atoms'
 import { useRecoilValue } from 'recoil'
 
 const TodayForecast = () => {
@@ -26,7 +26,12 @@ const TodayForecast = () => {
                 Today
               </Typography>
             ) : (
-              <Skeleton variant="text" width={130} height={42} />
+              <Skeleton
+                variant="text"
+                width={130}
+                height={42}
+                data-testid="todaySkeleton"
+              />
             )}
           </Grid>
         </Grid>
