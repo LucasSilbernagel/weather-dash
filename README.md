@@ -51,3 +51,9 @@ To start up the app, make sure you are in the root folder and then run `npm star
 Unit tests are written with [Jest](https://jestjs.io/) and [react-testing-library](https://testing-library.com/).
 
 Use `npm test` to run all unit tests, or `npm test -- SomeFileToRun` to run a specific test file.
+
+### End-to-End Tests
+
+End-to-end tests are written with [Cypress](https://www.cypress.io/).
+
+Use `npx cypress open` to launch the Cypress test runner.
