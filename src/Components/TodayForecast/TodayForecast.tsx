@@ -40,7 +40,7 @@ const TodayForecast = () => {
             {forecast.length ? (
               <WeatherIcon day={forecast[0]} size={'10rem'} />
             ) : (
-              <Skeleton variant="rectangular" width={140} height={164} />
+              <Skeleton variant="rectangular" width={140} height={130} />
             )}
           </Grid>
           <Grid item container direction="column" lg={2} alignItems="center">
@@ -56,7 +56,7 @@ const TodayForecast = () => {
                   {forecast[0].maxTemp}°
                 </Typography>
               ) : (
-                <Skeleton variant="text" width={80} height={95} />
+                <Skeleton variant="text" width={80} height={90} />
               )}
             </Grid>
             <Grid item>
@@ -71,7 +71,7 @@ const TodayForecast = () => {
                   {forecast[0].minTemp}°
                 </Typography>
               ) : (
-                <Skeleton variant="text" width={80} height={95} />
+                <Skeleton variant="text" width={60} height={60} />
               )}
             </Grid>
           </Grid>
@@ -88,7 +88,7 @@ const TodayForecast = () => {
               {forecast[0].weather}
             </Typography>
           ) : (
-            <Skeleton variant="text" width={80} height={50} />
+            <Skeleton variant="text" width={220} height={50} />
           )}
         </Grid>
       </Grid>
