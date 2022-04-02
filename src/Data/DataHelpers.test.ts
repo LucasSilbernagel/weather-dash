@@ -1,6 +1,5 @@
-import { enableFetchMocks } from 'jest-fetch-mock'
+import fetch, { enableFetchMocks } from 'jest-fetch-mock'
 enableFetchMocks()
-import fetch from 'jest-fetch-mock'
 import {
   buildURLWithQueryParams,
   getWeatherData,

@@ -42,16 +42,16 @@ const CitySelect = (props: IComponentProps) => {
           loading={loadingCityOptions}
           onChange={handleDropdownChange}
           onInputChange={handleInputChange}
-          renderOption={(props, option) => {
+          renderOption={(renderProps, option) => {
             if (option.state.length > 0) {
               return (
-                <li {...props} key={option.id}>
+                <li {...renderProps} key={option.id}>
                   {`${option.cityName}, ${option.state}, ${option.country}`}
                 </li>
               )
             } else {
               return (
-                <li {...props} key={option.id}>
+                <li {...renderProps} key={option.id}>
                   {`${option.cityName}, ${option.country}`}
                 </li>
               )

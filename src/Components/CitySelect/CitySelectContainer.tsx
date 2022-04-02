@@ -21,7 +21,7 @@ const CitySelectContainer = (props: IComponentProps) => {
 
   /** Fires when the user types in the autocomplete */
   const handleInputChange = (
-    event: SyntheticEvent<Element, Event>,
+    _event: SyntheticEvent<Element, Event>,
     value: string
   ) => {
     setSearchedCity(value)
@@ -29,7 +29,7 @@ const CitySelectContainer = (props: IComponentProps) => {
 
   /** Fires when the user selects an option from the autocomplete */
   const handleDropdownChange = (
-    event: SyntheticEvent<Element, Event>,
+    _event: SyntheticEvent<Element, Event>,
     value: IDigestedGeocodingOption | null
   ) => {
     if (value) {

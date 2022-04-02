@@ -12,7 +12,7 @@ const UnitToggleContainer = (props: IComponentProps) => {
 
   /** Handle switching between Celsius and Fahrenheit */
   const handleChange = (
-    event: React.MouseEvent<HTMLElement>,
+    _event: React.MouseEvent<HTMLElement>,
     value: TUnits
   ) => {
     setUnits(value)
