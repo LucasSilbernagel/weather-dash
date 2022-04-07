@@ -118,12 +118,7 @@ const FutureForecast = (props: IComponentProps) => {
             >
               <Grid container item direction="column" alignItems="center">
                 <Grid item>
-                  <Skeleton
-                    data-testid={index.toString().concat('-skeleton')}
-                    variant="text"
-                    width={70}
-                    height={35}
-                  />
+                  <Skeleton variant="text" width={70} height={35} />
                 </Grid>
                 <Grid item>
                   <Skeleton variant="rectangular" width={70} height={70} />

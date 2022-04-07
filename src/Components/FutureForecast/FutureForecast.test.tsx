@@ -38,17 +38,6 @@ const fakeFutureDays = [
 ]
 
 describe('FutureForecast', () => {
-  test('renders skeleton', () => {
-    render(
-      <RecoilRoot>
-        <FutureForecast
-          blankDays={['day1', 'day2', 'day3', 'day4']}
-          futureDays={[]}
-        />
-      </RecoilRoot>
-    )
-    expect(screen.getByTestId('0-skeleton')).toBeTruthy()
-  })
   test('renders forecast data', () => {
     render(
       <RecoilRoot>

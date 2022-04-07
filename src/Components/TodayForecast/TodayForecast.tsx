@@ -26,12 +26,7 @@ const TodayForecast = () => {
                 Today
               </Typography>
             ) : (
-              <Skeleton
-                variant="text"
-                width={130}
-                height={42}
-                data-testid="todaySkeleton"
-              />
+              <Skeleton variant="text" width={130} height={42} />
             )}
           </Grid>
         </Grid>
