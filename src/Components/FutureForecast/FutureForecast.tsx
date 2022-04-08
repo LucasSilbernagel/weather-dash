@@ -59,7 +59,7 @@ const FutureForecast = (props: IComponentProps) => {
                       </span>
                     </Tooltip>
                   ) : (
-                    <Skeleton variant="rectangular" width={70} height={70} />
+                    <Skeleton variant="rectangular" width={70} height={55} />
                   )}
                 </Grid>
                 <Grid item>

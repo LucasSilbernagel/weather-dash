@@ -57,3 +57,9 @@ Use `npm test` to run all unit tests, or `npm test -- SomeFileToRun` to run a sp
 End-to-end tests are written with [Cypress](https://www.cypress.io/).
 
 Use `npx cypress open` to launch the Cypress test runner.
+
+## Component Documentation
+
+Components are visually documented with [Storybook](https://storybook.js.org/).
+
+Use `npm run storybook` to launch Storybook.
