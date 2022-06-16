@@ -102,7 +102,7 @@ const FutureForecast = (props: IComponentProps) => {
   } else {
     return (
       <Grid container item>
-        {blankDays.map((day, index) => {
+        {blankDays.map((day) => {
           return (
             <Grid
               key={day}

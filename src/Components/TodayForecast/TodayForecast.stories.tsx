@@ -12,9 +12,7 @@ export default {
   },
 } as ComponentMeta<typeof TodayForecast>
 
-const Template: ComponentStory<typeof TodayForecast> = (args) => (
-  <TodayForecast />
-)
+const Template: ComponentStory<typeof TodayForecast> = () => <TodayForecast />
 
 const forecastAtomConfig = fakeForecast
 
