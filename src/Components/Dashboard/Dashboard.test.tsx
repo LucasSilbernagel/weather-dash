@@ -5,7 +5,7 @@ import { atomForecast } from '../../atoms'
 import { fakeForecast } from '../../Data/FakeDataHelpers'
 
 describe('Dashboard', () => {
-  test('renders', () => {
+  test('renders', async () => {
     render(
       <RecoilRoot
         initializeState={(snap) => snap.set(atomForecast, fakeForecast)}
@@ -14,6 +14,6 @@ describe('Dashboard', () => {
       </RecoilRoot>
     )
     expect(screen.getByText('Today')).toBeTruthy()
-    expect(screen.findAllByRole('img')).toBeTruthy()
+    expect(await screen.findAllByRole('img')).toBeTruthy()
   })
 })

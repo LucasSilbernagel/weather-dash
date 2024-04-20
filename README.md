@@ -27,7 +27,7 @@ A simple weather dashboard.
 
 ## Run Locally
 
-In order to run this application locally, you must have node installed on your computer. To check if you already have it installed, enter `node -v` in your terminal. If you do not have node, you can install it here: [https://nodejs.org/en/](https://nodejs.org/en/)
+In order to run this application locally, you must have node version 16 installed on your computer. To check if you already have it installed, enter `node -v` in your terminal. If you do not have node, you can install it here: [https://nodejs.org/en/](https://nodejs.org/en/)
 
 Once you have confirmed that node is installed, `cd` into a folder on your computer and run the following command to clone the repository:
 

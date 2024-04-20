@@ -17,7 +17,7 @@ export const buildURLWithQueryParams = (endpoint: string, params: {}) => {
  * @returns {Promise<Response>}
  */
 export const getWeatherData = (params: {}) => {
-  return fetch(buildURLWithQueryParams(`/data/2.5/onecall`, params))
+  return fetch(buildURLWithQueryParams(`/data/3.0/onecall`, params))
 }
 
 /** Gets geocoding (city) data from the OpenWeatherMap API

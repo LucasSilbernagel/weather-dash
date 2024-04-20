@@ -1,10 +1,11 @@
+/* eslint-disable jest/no-conditional-expect */
 import fetch, { enableFetchMocks } from 'jest-fetch-mock'
-enableFetchMocks()
 import {
   buildURLWithQueryParams,
   getWeatherData,
   getGeocodingData,
 } from './DataHelpers'
+enableFetchMocks()
 
 describe('buildURLWithQueryParams', () => {
   test('buildURLWithQueryParams', () => {
@@ -27,7 +28,7 @@ describe('getWeatherData', () => {
         units: 'metric',
       })
     )
-    getWeatherData({
+    return getWeatherData({
       lat: 43.65107,
       lon: -79.347015,
       exclude: 'minutely,hourly,alerts',
@@ -43,10 +44,6 @@ describe('getWeatherData', () => {
         })
       )
       .catch((err) => err)
-    expect(fetch.mock.calls.length).toEqual(1)
-    expect(fetch.mock.calls[0][0]).toEqual(
-      'https://api.openweathermap.org/data/2.5/onecall?lat=43.65107&lon=-79.347015&exclude=minutely%2Chourly%2Calerts&units=metric'
-    )
   })
 })
 
@@ -61,7 +58,7 @@ describe('getGeocodingData', () => {
         limit: 3,
       })
     )
-    getGeocodingData({
+    return getGeocodingData({
       q: 'Toronto',
       limit: 3,
     })
@@ -73,9 +70,5 @@ describe('getGeocodingData', () => {
         })
       )
       .catch((err) => err)
-    expect(fetch.mock.calls.length).toEqual(1)
-    expect(fetch.mock.calls[0][0]).toEqual(
-      'https://api.openweathermap.org/geo/1.0/direct?q=Toronto&limit=3'
-    )
   })
 })

@@ -13,6 +13,7 @@ describe('FutureForecast', () => {
         />
       </RecoilRoot>
     )
+    // eslint-disable-next-line testing-library/await-async-query
     expect(screen.findAllByRole('img')).toBeTruthy()
   })
 })
